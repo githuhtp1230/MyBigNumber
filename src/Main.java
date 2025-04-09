@@ -27,13 +27,6 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         String n1 = sc.nextLine();
         String n2 = sc.nextLine();
-        try {
-            Integer.parseInt(n1);
-            Integer.parseInt(n2);
-        } catch (Exception e) {
-            System.out.println("Vui lòng nhập chữ số");
-            return;
-        }
         System.out.println(sum(n1, n2));
     }
 }
