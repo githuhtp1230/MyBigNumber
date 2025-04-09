@@ -6,9 +6,9 @@ public class Main {
         int rewind = 0;
         int i = stn1.length() - 1;
         int j = stn2.length() - 1;
-        while (i >= 0 && j >= 0) {
-            int n1 = Character.getNumericValue(stn1.charAt(i));
-            int n2 = Character.getNumericValue(stn2.charAt(j));
+        while (i >= 0 || j >= 0 || rewind > 0) {
+            int n1 = i >= 0 ? Character.getNumericValue(stn1.charAt(i)) : 0;
+            int n2 = j >= 0 ? Character.getNumericValue(stn2.charAt(j)) : 0;
             int sum = n1 + n2 + rewind;
             if (sum >= 10) {
                 sum %= 10;
@@ -19,33 +19,6 @@ public class Main {
             sumStr = sum + sumStr;
             i--;
             j--;
-        }
-        while (i >= 0) {
-            int n1 = Character.getNumericValue(stn1.charAt(i));
-            int sum = n1 + rewind;
-            if (sum >= 10) {
-                sum %= 10;
-                rewind = 1;
-            } else {
-                rewind = 0;
-            }
-            sumStr = sum + sumStr;
-            i--;
-        }
-        while (j >= 0) {
-            int n2 = Character.getNumericValue(stn2.charAt(j));
-            int sum = n2 + rewind;
-            if (sum >= 10) {
-                sum %= 10;
-                rewind = 1;
-            } else {
-                rewind = 0;
-            }
-            sumStr = sum + sumStr;
-            j--;
-        }
-        if (rewind == 1) {
-            sumStr = "1" + sumStr;
         }
         return sumStr;
     }
